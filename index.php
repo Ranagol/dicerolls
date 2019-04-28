@@ -2,11 +2,17 @@
 
 session_start();
 
-$numberOfDices = $_SESSION['numberOfDices'];
+
+
 
 if (isset($_POST)) {
 	$numberOfDices = implode('', $_POST);
-}
+} else {
+	if (isset($_SESSION['numberOfDices'])) {
+		$numberOfDices = $_SESSION['numberOfDices'];
+	} 
+} 
+
 
 require 'dice.php';
 require 'index.view.php';
